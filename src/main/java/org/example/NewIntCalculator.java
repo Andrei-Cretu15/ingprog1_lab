@@ -1,4 +1,4 @@
-package ro.ulbs.paradigme.lab7;
+package org.example;
 
 public class NewIntCalculator extends ACalculator<Integer> {
 

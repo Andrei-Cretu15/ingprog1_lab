@@ -1,4 +1,4 @@
-package ro.ulbs.paradigme.lab7;
+package org.example;
 
 public abstract class ACalculator<T> {
     protected T state;
