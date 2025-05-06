@@ -10,7 +10,7 @@ public class MainApp {
 
     public static void main(String[] args) {
 
-        System.out.println("Choose a strategy: type 'basic or 'filtered'");
+        System.out.println("Choose a strategy: type 'basic or 'filtered'\n");
         Scanner scanner = new Scanner(System.in);
         String strategyType = scanner.next();
         scanner.close();

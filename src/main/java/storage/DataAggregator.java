@@ -8,6 +8,7 @@ public class DataAggregator  {
     public DataAggregator(StepCountStrategy strategy) {
         this.strategy = strategy;
     }
+
     public void receive(DataRepository repo) {
         repo.getRecords().forEach(r -> strategy.consumeMessage(r));
     }

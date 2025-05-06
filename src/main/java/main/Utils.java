@@ -13,13 +13,13 @@ public class Utils {
     }
 
 
-    public static StepCountStrategy getStrategy(String type) {
-        if (BASIC_STRATEGY.equals(type)) {
+    public static StepCountStrategy getStrategy(String strategyType) {
+        if ("basic".equalsIgnoreCase(strategyType)) {
             return new BasicStepCountStrategy();
-        } else if (FILTERED_STRATEGY.equals(type)) {
+        } else if ("filtered".equalsIgnoreCase(strategyType)) {
             return new FilteredStepCountStrategy();
         } else {
-            throw new IllegalArgumentException("Unknown strategy type: " + type);
+            throw new IllegalArgumentException("Invalid strategy type: " + strategyType);
         }
     }
 }

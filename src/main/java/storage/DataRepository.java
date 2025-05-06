@@ -25,12 +25,12 @@ public class DataRepository {
     }
 
     public void addData(SensorData dataRecord){
-
+            dataRecords.add(dataRecord);
     }
 
 
     public List<SensorData> getRecords() {
-        return null;
+        return dataRecords;
     }
 }
 

@@ -12,7 +12,7 @@ public class FilteredStepCountStrategy implements StepCountStrategy {
 
     @Override
     public void consumeMessage(SensorData sample) {
-        DataRepository.getInstance().addData(sample);
+        //DataRepository.getInstance().addData(sample);
     }
 
     @Override
