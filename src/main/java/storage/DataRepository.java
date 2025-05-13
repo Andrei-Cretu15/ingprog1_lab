@@ -1,12 +1,15 @@
 package storage;
 
-
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.List;
 /**
  * Persists sensor data. Observable, its observers are notified when data is added it to.
  */
-// TODO make this an Observable - by extending class java.util.Observable
-public class DataRepository {
+
+public class DataRepository extends Observable {
     private static DataRepository instance;
+    private final List<ISensorData> dataList = new ArrayList<>();
 
     private DataRepository() {}
 
@@ -17,8 +20,9 @@ public class DataRepository {
         return instance;
     }
     public void addData(SensorData dataRecord){
-        // TODO notify observers -  mark as changed, then call inherited notifyObservers(dataRecord)
-
+        dataList.add(dataRecord);
+        setChanged();
+        notifyObservers(dataRecord);
     }
 
 }

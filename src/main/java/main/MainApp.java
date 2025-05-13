@@ -21,19 +21,20 @@ public class MainApp {
         DataRepository dataRepository =  DataRepository.getInstance();
 
         DataAggregator aggregator = new DataAggregator(Utils.getStrategy(strategyType));
-        // TODO: add DataAggregator and ConsoleLogger observers to the dataRepository.
-        // dataRepository.addObserver(aggregator);
-        // dataRepository.addObserver(new ConsoleLogger());
+
+         dataRepository.addObserver(aggregator);
+         dataRepository.addObserver(new ConsoleLogger());
+
 
         long baseTimestamp = System.currentTimeMillis();
 
-        /*   // TODO Uncomment for decorator
+
         baseTimestamp -= 62 * 1000; //one minute before
-        dataRepository.addData(new DecoratedSensorData(new SensorData(450, baseTimestamp + 5)));
-        dataRepository.addData(new DecoratedSensorData(new SensorData(-100, baseTimestamp + 6)));
-        dataRepository.addData(new DecoratedSensorData(new SensorData(500, baseTimestamp + 70)));
+        dataRepository.addData(new SensorData(450, baseTimestamp + 5));
+        dataRepository.addData(new SensorData(-100, baseTimestamp + 6));
+        dataRepository.addData(new SensorData(500, baseTimestamp + 70));
         baseTimestamp += 62 * 1000; //back to present
-        */
+
 
         dataRepository.addData(new SensorData(10, baseTimestamp + 1));
         dataRepository.addData(new SensorData(20, baseTimestamp + 2));

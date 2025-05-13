@@ -1,15 +1,24 @@
 package storage;
 
-
 import dataprocessing.StepCountStrategy;
+import storage.SensorData;
 
+import java.util.Observer;
+import java.util.Observable;
 
-// TODO Implement observer for changes in data repository, implement java.util.Observer interface
-public class DataAggregator  {
+public class DataAggregator implements Observer {
 
     private StepCountStrategy strategy;
+
     public DataAggregator(StepCountStrategy strategy) {
         this.strategy = strategy;
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+        if (arg instanceof SensorData) {
+            strategy.consumeMessage((SensorData) arg);
+        }
     }
 
     public String getResults() {
